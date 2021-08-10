@@ -1,2 +1,2 @@
-rootProject.name = "KMux"
+rootProject.name = "Kmux"
 

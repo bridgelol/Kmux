@@ -1,4 +1,4 @@
-# KMux
+# Kmux
 Kotlin wrapper for tmux.
 
 ### Example
