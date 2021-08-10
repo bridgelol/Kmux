@@ -42,6 +42,9 @@ class Session(val name: String) {
             Runtime.getRuntime().exec("tmux new -d -s $name")
     }
 
+    /**
+     * Kill the session.
+     */
     fun kill() {
         if (!exists)
             throw IllegalStateException("Tmux session $name does not exist!")
@@ -49,6 +52,9 @@ class Session(val name: String) {
         Runtime.getRuntime().exec("tmux kill-ses -t $name")
     }
 
+    /**
+     * Send command directly to the window.
+     */
     fun sendCommand(command: String) {
         Runtime.getRuntime().exec(
             "tmux send-keys -t " +

@@ -2,6 +2,13 @@ package io.github.bridgelol.kmux
 
 import java.io.InputStreamReader
 
+/**
+ * Class representing a tmux window.
+ *
+ * @see <a href="https://github.com/tmux/tmux/wiki">https://github.com/tmux/tmux/wiki</a>
+ * @author Bridge
+ * @since 1.0
+ */
 class Window {
 
     val session: Session
@@ -17,6 +24,10 @@ class Window {
             field = newName
         }
 
+    /**
+     * @param session Parent session of this window.
+     *  @param name Name of the window.
+     */
     constructor(session: Session, name: String) {
         this.session = session
         this.name = name
@@ -57,6 +68,9 @@ class Window {
      */
     val wasCreated: Boolean
 
+    /**
+     * Kill the window
+     */
     fun kill() {
         if (!exists)
             throw IllegalStateException("Tmux window $name does not exist!")
@@ -64,6 +78,9 @@ class Window {
         Runtime.getRuntime().exec("tmux kill-window -t \"${fullName()}\"")
     }
 
+    /**
+     * Send command directly to the window.
+     */
     fun sendCommand(command: String) {
         Runtime.getRuntime().exec(
             "tmux send-keys -t " +
