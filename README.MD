@@ -1,6 +1,4 @@
 # KMux
-[![Releases](https://github.com/bridgelol/KMux/releases)]
-
 Kotlin wrapper for tmux.
 
 ### Example
